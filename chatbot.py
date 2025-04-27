@@ -32,10 +32,10 @@ async def start(update: Update, context):
 # Handler untuk command /tanyajawab (dari chat)
 async def tanyajawab_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("📖 Qna Kemuridan", callback_data="Qna_kemuridan")],
-        [InlineKeyboardButton("🕌 Qna Fiqih", callback_data="Qna_fiqih")],
-        [InlineKeyboardButton("🧘 Qna Tassawuf", callback_data="Qna_tassawuf")],
-        [InlineKeyboardButton("👨‍👩‍👧‍👦 Qna Keluarga", callback_data="Qna_keluarga")],
+        [InlineKeyboardButton("📖 Qna Kemuridan", callback_data="qna_kemuridan")],
+        [InlineKeyboardButton("🕌 Qna Fiqih", callback_data="qna_fiqih")],
+        [InlineKeyboardButton("🧘 Qna Tassawuf", callback_data="qna_tassawuf")],
+        [InlineKeyboardButton("👨‍👩‍👧‍👦 Qna Keluarga", callback_data="qna_keluarga")],
         [InlineKeyboardButton("🙌 Panduan", callback_data="panduan")],
         [InlineKeyboardButton("🆘 Bantuan", callback_data="bantuan")]
     ]
@@ -49,10 +49,10 @@ async def tanyajawab_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
     await query.answer()
 
     keyboard = [
-        [InlineKeyboardButton("📖 Qna Kemuridan", callback_data="Qna_kemuridan")],
-        [InlineKeyboardButton("🕌 Qna Fiqih", callback_data="Qna_fiqih")],
-        [InlineKeyboardButton("🧘 Qna Tassawuf", callback_data="Qna_tassawuf")],
-        [InlineKeyboardButton("👨‍👩‍👧‍👦 Qna Keluarga", callback_data="Qna_keluarga")],
+        [InlineKeyboardButton("📖 Qna Kemuridan", callback_data="qna_kemuridan")],
+        [InlineKeyboardButton("🕌 Qna Fiqih", callback_data="qna_fiqih")],
+        [InlineKeyboardButton("🧘 Qna Tassawuf", callback_data="qna_tassawuf")],
+        [InlineKeyboardButton("👨‍👩‍👧‍👦 Qna Keluarga", callback_data="qna_keluarga")],
         [InlineKeyboardButton("🙌 Panduan", callback_data="panduan")],
         [InlineKeyboardButton("🆘 Bantuan", callback_data="bantuan")]
     ]
