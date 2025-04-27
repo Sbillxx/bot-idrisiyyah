@@ -147,4 +147,5 @@ Jika Anda ingin berkontribusi pada pengembangan bot ini:
 
 ## 📞 Kontak
 
-[Informasi kontak untuk bantuan atau pertanyaan]
+ibnusidik.ali@gmail.com
+
