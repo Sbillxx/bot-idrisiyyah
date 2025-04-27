@@ -836,7 +836,7 @@ async def admin_qna_add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     
-    # Tampilkan semua kategori QnA
+    # Tampilkan semua kategori QnA ini
     keyboard = [
         [InlineKeyboardButton("📖 Qna Kemuridan", callback_data="admin_add_kemuridan")],
         [InlineKeyboardButton("🕌 Qna Fiqih", callback_data="admin_add_fiqih")],
