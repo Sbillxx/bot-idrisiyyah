@@ -95,7 +95,7 @@ async def tanyajawab_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
 async def qna_kemuridan(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_kemuridan")
+    cursor.execute("SELECT id, question FROM qna_kemuridan")
     qna_list = cursor.fetchall()
     conn.close()
     
@@ -111,7 +111,7 @@ async def qna_kemuridan(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def qna_fiqih(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_fiqih")
+    cursor.execute("SELECT id, question FROM qna_fiqih")
     qna_list = cursor.fetchall()
     conn.close()
     
@@ -127,7 +127,7 @@ async def qna_fiqih(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def qna_tassawuf(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_tassawuf")
+    cursor.execute("SELECT id, question FROM qna_tassawuf")
     qna_list = cursor.fetchall()
     conn.close()
     
@@ -145,7 +145,7 @@ async def qna_tassawuf(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def qna_keluarga(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_keluarga")
+    cursor.execute("SELECT id, question FROM qna_keluarga")
     qna_list = cursor.fetchall()
     conn.close()
     
@@ -543,7 +543,7 @@ async def admin_qna_kemuridan(update: Update, context: ContextTypes.DEFAULT_TYPE
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_kemuridan")
+    cursor.execute("SELECT id, question FROM qna_kemuridan")
     qna_list = cursor.fetchall()
     conn.close()
 
@@ -574,7 +574,7 @@ async def admin_qna_fiqih(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_fiqih")
+    cursor.execute("SELECT id, question FROM qna_fiqih")
     qna_list = cursor.fetchall()
     conn.close()
 
@@ -607,7 +607,7 @@ async def admin_qna_tassawuf(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_tassawuf")
+    cursor.execute("SELECT id, question FROM qna_tassawuf")
     qna_list = cursor.fetchall()
     conn.close()
 
@@ -638,7 +638,7 @@ async def admin_qna_keluarga(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, question FROM Qna_keluarga")
+    cursor.execute("SELECT id, question FROM qna_keluarga")
     qna_list = cursor.fetchall()
     conn.close()
 
@@ -712,10 +712,10 @@ async def qna_detail(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Tentukan nama tabel berdasarkan kategori
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     
     table_name = table_mapping.get(category)
@@ -740,7 +740,7 @@ async def qna_detail(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 [InlineKeyboardButton("⬅️ Kembali", callback_data=f"admin_qna_{category}")]
             ]
         else:
-            keyboard = [[InlineKeyboardButton("⬅️ Kembali", callback_data=f"Qna_{category}")]]
+            keyboard = [[InlineKeyboardButton("⬅️ Kembali", callback_data=f"qna_{category}")]]
     else:
         response = "Data tidak ditemukan."
         keyboard = [[InlineKeyboardButton("⬅️ Kembali", callback_data="admin_qna_list")]]
@@ -800,10 +800,10 @@ async def confirm_delete(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Mapping nama tabel
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     
     table_name = table_mapping.get(category)
@@ -859,10 +859,10 @@ async def admin_add_category(update: Update, context: ContextTypes.DEFAULT_TYPE)
     
     # Mapping nama tabel
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     
     # Ambil data dari database
@@ -937,10 +937,10 @@ async def receive_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # Mapping nama tabel
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     
     table_name = table_mapping.get(category)
@@ -1055,10 +1055,10 @@ async def view_qna_for_add(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Tentukan nama tabel
         table_mapping = {
-            "kemuridan": "Qna_kemuridan",
-            "fiqih": "Qna_fiqih",
-            "tassawuf": "Qna_tassawuf",
-            "keluarga": "Qna_keluarga"
+            "kemuridan": "qna_kemuridan",
+            "fiqih": "qna_fiqih",
+            "tassawuf": "qna_tassawuf",
+            "keluarga": "qna_keluarga"
         }
         table_name = table_mapping.get(category)
         
@@ -1104,10 +1104,10 @@ async def view_qna_for_add(update: Update, context: ContextTypes.DEFAULT_TYPE):
         qna_id = data_parts[3]
         
         table_mapping = {
-            "kemuridan": "Qna_kemuridan",
-            "fiqih": "Qna_fiqih",
-            "tassawuf": "Qna_tassawuf",
-            "keluarga": "Qna_keluarga"
+            "kemuridan": "qna_kemuridan",
+            "fiqih": "qna_fiqih",
+            "tassawuf": "qna_tassawuf",
+            "keluarga": "qna_keluarga"
         }
         table_name = table_mapping.get(category)
         
@@ -1138,10 +1138,10 @@ async def edit_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     qna_id = context.user_data.get('edit_id')
     
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     table_name = table_mapping.get(category)
     
@@ -1172,10 +1172,10 @@ async def edit_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     qna_id = context.user_data.get('edit_id')
     
     table_mapping = {
-        "kemuridan": "Qna_kemuridan",
-        "fiqih": "Qna_fiqih",
-        "tassawuf": "Qna_tassawuf",
-        "keluarga": "Qna_keluarga"
+        "kemuridan": "qna_kemuridan",
+        "fiqih": "qna_fiqih",
+        "tassawuf": "qna_tassawuf",
+        "keluarga": "qna_keluarga"
     }
     table_name = table_mapping.get(category)
     
@@ -1245,10 +1245,10 @@ def main():
     app.add_handler(CallbackQueryHandler(panduan, pattern="^panduan$"))
     app.add_handler(CallbackQueryHandler(bantuan, pattern="^bantuan$"))
     app.add_handler(CallbackQueryHandler(qna_detail, pattern="^(admin_qna_detail_|)(kemuridan|fiqih|tassawuf|keluarga)_\\d+$"))
-    app.add_handler(CallbackQueryHandler(qna_kemuridan, pattern="^Qna_kemuridan$"))
-    app.add_handler(CallbackQueryHandler(qna_fiqih, pattern="^Qna_fiqih$"))
-    app.add_handler(CallbackQueryHandler(qna_tassawuf, pattern="^Qna_tassawuf$"))
-    app.add_handler(CallbackQueryHandler(qna_keluarga, pattern="^Qna_keluarga$"))
+    app.add_handler(CallbackQueryHandler(qna_kemuridan, pattern="^qna_kemuridan$"))
+    app.add_handler(CallbackQueryHandler(qna_fiqih, pattern="^qna_fiqih$"))
+    app.add_handler(CallbackQueryHandler(qna_tassawuf, pattern="^qna_tassawuf$"))
+    app.add_handler(CallbackQueryHandler(qna_keluarga, pattern="^qna_keluarga$"))
     
     # Handler Admin
     conv_handler = ConversationHandler(
