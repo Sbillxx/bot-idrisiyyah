@@ -18,14 +18,27 @@ DB_CONFIG = {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "telebot",
+    "database": "chatbot_db",
     "port": 3306,
     "charset": "utf8mb4",
     "collation": "utf8mb4_general_ci"
 }
 
+# def get_db_connection():
+#     return mysql.connector.connect(**DB_CONFIG)
 def get_db_connection():
-    return mysql.connector.connect(**DB_CONFIG)
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="chatbot_db",
+        port=3306,
+        charset="utf8mb4"
+    )
+    cursor = conn.cursor()
+    cursor.execute("SET collation_connection = 'utf8mb4_general_ci'")
+    return conn
+
 
 logging.getLogger('telegram.ext.conversationhandler').setLevel(logging.ERROR)
 
