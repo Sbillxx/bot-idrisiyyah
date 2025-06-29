@@ -1272,7 +1272,7 @@ def main():
     )
     app.add_handler(conv_handler)
 
-    # Handler Admin QnA
+    # Handler Admin QnAaaaaa
     app.add_handler(CallbackQueryHandler(admin_qna_kemuridan, pattern="^admin_qna_kemuridan$"))
     app.add_handler(CallbackQueryHandler(admin_qna_fiqih, pattern="^admin_qna_fiqih$"))
     app.add_handler(CallbackQueryHandler(admin_qna_tassawuf, pattern="^admin_qna_tassawuf$"))
