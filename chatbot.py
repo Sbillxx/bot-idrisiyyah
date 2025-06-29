@@ -6,6 +6,7 @@ import asyncio
 import time
 import mysql.connector
 import logging
+from flask import Flask, request
 
 # Load environment variables
 load_dotenv()
@@ -14,15 +15,7 @@ TOKEN = os.getenv("BOT_TOKEN")
 
 
 # Konfigurasi database menggunakan environment variables
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "",
-    "database": "chatbot_db",
-    "port": 3306,
-    "charset": "utf8mb4",
-    "collation": "utf8mb4_general_ci"
-}
+
 
 # def get_db_connection():
 #     return mysql.connector.connect(**DB_CONFIG)
@@ -31,12 +24,12 @@ def get_db_connection():
         host="localhost",
         user="root",
         password="",
-        database="chatbot_db",
+        database="chatbot2",
         port=3306,
         charset="utf8mb4"
     )
     cursor = conn.cursor()
-    cursor.execute("SET collation_connection = 'utf8mb4_general_ci'")
+    cursor.execute("SET NAMES utf8mb4 COLLATE utf8mb4_general_ci")
     return conn
 
 
@@ -1385,3 +1378,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+app = Flask(__name__)
+application = Application.builder().token(TOKEN).build()
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    update = Update.de_json(request.get_json(force=True), application.bot)
+    application.process_update(update)
+    return 'ok'
