@@ -29,7 +29,7 @@ def get_db_connection():
         charset="utf8mb4"
     )
     cursor = conn.cursor()
-    cursor.execute("SET NAMES utf8mb4 COLLATE utf8mb4_general_ci")
+    cursor.execute("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci")
     return conn
 
 
