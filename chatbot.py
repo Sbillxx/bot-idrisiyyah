@@ -1293,7 +1293,7 @@ def main():
     )
     app.add_handler(add_qna_handler)
 
-    # Tambahkan handler baru
+    # Tambahkan handler barusdfsdfsdf
     app.add_handler(CallbackQueryHandler(view_qna_for_add, pattern="^(add_qna|delete|confirm_delete)_(kemuridan|fiqih|tassawuf|keluarga)_\\d+$"))
 
     # Tambahkan handler untuk delete
