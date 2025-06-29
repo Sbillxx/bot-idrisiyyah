@@ -21,11 +21,11 @@ TOKEN = os.getenv("BOT_TOKEN")
 #     return mysql.connector.connect(**DB_CONFIG)
 def get_db_connection():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="chatbot2",
-        port=3306,
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+        port=int(os.getenv("DB_PORT", 3306)),
         charset="utf8mb4"
     )
     cursor = conn.cursor()
